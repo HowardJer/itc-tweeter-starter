@@ -50,9 +50,7 @@ export default {
             })
             .then((response) => {
                 let follows = response.data;
-                console.log('FOLLOWS', follows)
                 for (let i in follows) {
-                    console.log('FOLLOW: ', follows[i])
                     this.loadTweets(follows[i].userId, true)
                 }
             })
@@ -66,8 +64,6 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response);
-
                 if (response.status === 200) {
                     if (append) {
                         this.tweets = this.tweets.concat(response.data)

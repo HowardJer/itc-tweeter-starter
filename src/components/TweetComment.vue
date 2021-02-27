@@ -52,8 +52,7 @@ export default {
                         commentId: this.comment.commentId
                     }
                 })
-                .then((response) => {
-                    console.log(response);
+                .then(() => {
                     this.$emit('commentDeleted')
                 })
             }
@@ -68,8 +67,7 @@ export default {
                     content: this.newContent
                 }
             })
-            .then((response) => {
-                console.log(response)
+            .then(() => {
                 this.editing = false;
                 this.$emit('commentUpdated')
             })

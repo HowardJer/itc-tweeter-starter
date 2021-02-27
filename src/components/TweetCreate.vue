@@ -25,9 +25,7 @@ export default {
                     content: this.content
                 }
             })
-            .then((response) => {
-                console.log(response);
-                
+            .then((response) => {               
                 if (response.status === 201) {
                     this.content = '';
                     this.$emit('tweetCreated');

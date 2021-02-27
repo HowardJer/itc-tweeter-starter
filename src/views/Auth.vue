@@ -66,8 +66,6 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response);
-
                 if (response.status === 201) {
                     // successful path
                     this.$cookies.set('user', response.data, '1h');
@@ -88,9 +86,7 @@ export default {
                     birthdate: this.registerForm.birthdate,
                     bio: this.registerForm.bio
                 }
-            }).then((response) => {
-                console.log(response);
-                
+            }).then((response) => {              
                 if (response.status === 201) {
                     // successful path
                     this.$store.commit('setLoggedInUser', response.data);

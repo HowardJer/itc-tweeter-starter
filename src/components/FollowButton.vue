@@ -38,7 +38,6 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response.data)
                 this.followers = response.data;
             })
         },
@@ -51,8 +50,7 @@ export default {
                     followId: this.userId
                 }
             })
-            .then((response) => {
-                console.log(response);
+            .then(() => {
                 this.loadFollowers();
             })
         }

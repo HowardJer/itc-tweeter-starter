@@ -51,7 +51,6 @@ export default {
     },
     computed: {
         owner() {
-            console.log(this.loggedInUser());
             return this.user.userId === this.loggedInUser().userId
         },
         profileId() {
@@ -101,8 +100,7 @@ export default {
                     bio: this.newContent
                 }
             })
-            .then((response) => {
-                console.log(response);
+            .then(() => {
                 this.editing = false;
                 this.user.bio = this.newContent;
             })

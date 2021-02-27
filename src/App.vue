@@ -6,7 +6,7 @@
             <router-link to="/discover">Discover</router-link> | 
             <a v-if="loggedInUser()" href="#" @click="logout">Logout</a>
         </div>
-        <router-view/>
+        <router-view :key="$route.path" />
     </div>
 </template>
 

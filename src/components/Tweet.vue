@@ -84,8 +84,6 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response);
-
                 if (response.status === 200) {
                     this.editing = false;
                     this.$emit('tweetUpdated', this.newContent);

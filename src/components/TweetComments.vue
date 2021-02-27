@@ -43,7 +43,6 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response)
                 if (response.status === 200) {
                     // success path
                     this.newComment = ''

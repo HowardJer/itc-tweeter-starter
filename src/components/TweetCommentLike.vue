@@ -21,7 +21,6 @@ export default {
             return this.likes.length;
         },
         liked() {
-            console.log(this.likes)
             let match = this.likes.filter((like) => {
                 return like.userId === this.loggedInUser().userId;
             })
@@ -39,7 +38,6 @@ export default {
                 }
             })
             .then((response) => {
-                console.log('LIKES', response.data);
                 this.likes = response.data;
             })
         },
@@ -54,8 +52,7 @@ export default {
                         commentId: this.commentId
                     }
                 })
-                .then((response) => {
-                    console.log(response);
+                .then(() => {
                     this.loadLikes();
                 })
             }
@@ -69,8 +66,7 @@ export default {
                         commentId: this.commentId
                     }
                 })
-                .then((response) => {
-                    console.log(response);
+                .then(() => {
                     this.loadLikes();
                 })
             }
