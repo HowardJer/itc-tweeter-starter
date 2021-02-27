@@ -2,13 +2,13 @@
     <div id="feed">
         <h1>Feed</h1>
         <hr>
-        <tweet-create @tweetCreated="loadTweets"></tweet-create>
+        <tweet-create @tweetCreated="loadFollows"></tweet-create>
         <hr>
         <tweet v-for="tweet in tweetsNewestFirst" 
             :key="tweet.tweetId" 
             :tweet="tweet"
-            @tweetDeleted="loadTweets"
-            @tweetUpdated="loadTweets">
+            @tweetDeleted="loadFollows"
+            @tweetUpdated="loadFollows">
         </tweet>
         <p v-if="!tweets.length">Nothing to show!</p>
     </div>
@@ -50,6 +50,7 @@ export default {
             })
             .then((response) => {
                 let follows = response.data;
+                this.loadTweets(this.loggedInUser().userId);
                 for (let i in follows) {
                     this.loadTweets(follows[i].userId, true)
                 }

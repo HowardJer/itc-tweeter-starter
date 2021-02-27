@@ -89,7 +89,7 @@ export default {
             }).then((response) => {              
                 if (response.status === 201) {
                     // successful path
-                    this.$store.commit('setLoggedInUser', response.data);
+                    this.$cookies.set('user', response.data, '1h');
                     this.$router.push({ name: 'Feed' })
                 } else {
                     alert('ERROR')

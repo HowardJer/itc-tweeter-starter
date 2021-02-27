@@ -32,24 +32,9 @@ export default {
         }
     },
     mounted() {
-        this.loadFollows();
+        this.loadTweets();
     },
     methods: {
-        loadFollows() {
-            this.$axios.request({
-                method: 'GET',
-                url: 'https://tweeterest.ml/api/follows',
-                params: {
-                    userId: this.loggedInUser().userId
-                }
-            })
-            .then((response) => {
-                let follows = response.data;
-                for (let i in follows) {
-                    this.loadTweets(follows[i].userId, true)
-                }
-            })
-        },
         loadTweets() {
             this.$axios.request({
                 method: 'GET',
