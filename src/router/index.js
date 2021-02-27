@@ -1,27 +1,53 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Feed from '@/views/Feed';
+import Auth from '@/views/Auth';
+import Profile from '@/views/Profile';
+import Discover from '@/views/Discover';
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+    {
+        path: '/',
+        name: 'Feed',
+        component: Feed
+    },
+    {
+        path: '/discover',
+        name: 'Discover',
+        component: Discover
+    },
+    {
+        path: '/auth',
+        name: 'Auth',
+        component: Auth
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
+    },
+    {
+        path: '/profile/:id',
+        name: 'Profile',
+        component: Profile
+    }
+];
 
 const router = new VueRouter({
-  routes
-})
+    routes
+});
 
+const protectedRoutes = [
+    'Feed',
+    'Profile'
+];
+
+router.beforeEach((to, from, next) => {
+    if (protectedRoutes.includes(to.name) && !Vue.$cookies.get('user')) {
+        next({ name: 'Auth'})
+    }
+    next(); 
+});
 export default router
