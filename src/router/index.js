@@ -40,7 +40,8 @@ const router = new VueRouter({
 
 const protectedRoutes = [
     'Feed',
-    'Profile'
+    'Profile',
+    'Discover'
 ];
 
 router.beforeEach((to, from, next) => {

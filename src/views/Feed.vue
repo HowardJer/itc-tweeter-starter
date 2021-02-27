@@ -32,8 +32,15 @@ export default {
     },
     computed: {
         tweetsNewestFirst() {
-            return this.tweets
-            // return this.tweets.slice(0, this.limit).reverse();
+            // sort function from: https://stackoverflow.com/a/8837511
+            return this.tweets.slice(0).sort(function(a, b) {
+                var keyA = new Date(a.createdAt)
+                var keyB = new Date(b.createdAt)
+                // Compare the 2 dates
+                if (keyA < keyB) return 1;
+                if (keyA > keyB) return -1;
+                return 0;
+            });
         }
     },
     mounted() {

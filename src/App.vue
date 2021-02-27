@@ -1,10 +1,10 @@
 <template>
     <div id="app">
-        <div id="nav">
+        <div id="nav" v-if="loggedInUser()" >
             <router-link to="/">Feed</router-link> | 
             <router-link to="/profile">Profile</router-link> | 
             <router-link to="/discover">Discover</router-link> | 
-            <a v-if="loggedInUser()" href="#" @click="logout">Logout</a>
+            <a href="#" @click="logout">Logout</a>
         </div>
         <router-view :key="$route.path" />
     </div>
