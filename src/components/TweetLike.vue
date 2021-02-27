@@ -32,7 +32,7 @@ export default {
         loadLikes() {
             this.$axios.request({
                 method: 'GET',
-                url: 'https://tweeterest.ml/api/tweet-likes',
+                url: this.api + '/tweet-likes',
                 params: {
                     tweetId: this.tweetId
                 }
@@ -46,7 +46,7 @@ export default {
             if (this.liked) {
                 this.$axios.request({
                     method: 'DELETE',
-                    url: 'https://tweeterest.ml/api/tweet-likes',
+                    url: this.api + '/tweet-likes',
                     data: {
                         loginToken: this.loginToken(),
                         tweetId: this.tweetId
@@ -60,7 +60,7 @@ export default {
             else {
                 this.$axios.request({
                     method: 'POST',
-                    url: 'https://tweeterest.ml/api/tweet-likes',
+                    url: this.api + '/tweet-likes',
                     data: {
                         loginToken: this.loginToken(),
                         tweetId: this.tweetId

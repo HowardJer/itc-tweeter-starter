@@ -59,7 +59,7 @@ export default {
             if (confirmDelete) {
                 this.$axios.request({
                     method: 'DELETE',
-                    url: 'https://tweeterest.ml/api/tweets',
+                    url: this.api + '/tweets',
                     data: {
                         loginToken: this.loginToken(),
                         tweetId: this.tweet.tweetId
@@ -76,7 +76,7 @@ export default {
         saveChanges() {
             this.$axios.request({
                 method: 'PATCH',
-                url: 'https://tweeterest.ml/api/tweets',
+                url: this.api + '/tweets',
                 data: {
                     loginToken: this.loginToken(),
                     tweetId: this.tweet.tweetId,

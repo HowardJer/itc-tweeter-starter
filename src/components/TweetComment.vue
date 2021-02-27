@@ -46,7 +46,7 @@ export default {
             if (confirmDelete) {
                 this.$axios.request({
                     method: 'DELETE',
-                    url: 'https://tweeterest.ml/api/comments',
+                    url: this.api + '/comments',
                     data: {
                         loginToken: this.loginToken(),
                         commentId: this.comment.commentId
@@ -60,7 +60,7 @@ export default {
         saveChanges() {
             this.$axios.request({
                 method: 'PATCH',
-                url: 'https://tweeterest.ml/api/comments',
+                url: this.api + '/comments',
                 data: {
                     loginToken: this.loginToken(),
                     commentId: this.comment.commentId,

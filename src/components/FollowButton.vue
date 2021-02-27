@@ -32,7 +32,7 @@ export default {
         loadFollowers() {
             this.$axios.request({
                 method: 'GET',
-                url: 'https://tweeterest.ml/api/followers',
+                url: this.api + '/followers',
                 params: {
                     userId: this.userId
                 }
@@ -44,7 +44,7 @@ export default {
         toggleFollow() {
             this.$axios.request({
                 method: this.following ? 'DELETE' : 'POST',
-                url: 'https://tweeterest.ml/api/follows',
+                url: this.api + '/follows',
                 data: {
                     loginToken: this.loginToken(),
                     followId: this.userId

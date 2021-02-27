@@ -50,7 +50,7 @@ export default {
         loadFollows() {
             this.$axios.request({
                 method: 'GET',
-                url: 'https://tweeterest.ml/api/follows',
+                url: this.api + '/follows',
                 params: {
                     userId: this.loggedInUser().userId
                 }
@@ -66,7 +66,7 @@ export default {
         loadTweets(userId, append) {
             this.$axios.request({
                 method: 'GET',
-                url: 'https://tweeterest.ml/api/tweets',
+                url: this.api + '/tweets',
                 params: {
                     userId: userId
                 }

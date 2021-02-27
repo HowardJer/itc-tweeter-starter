@@ -5,7 +5,7 @@ import store from './store'
 import axios from 'axios';
 import cookies from 'vue-cookies';
 
-axios.defaults.headers.common['X-Api-Key'] = process.env.VUE_APP_TWEETEREST_API;
+axios.defaults.headers.common['X-Api-Key'] = process.env.VUE_APP_API_KEY;
 Vue.prototype.$axios = axios;
 Vue.use(cookies);
 Vue.config.productionTip = false;
@@ -13,6 +13,7 @@ Vue.config.productionTip = false;
 Vue.mixin({
     data: function() {
         return {
+            api: process.env.VUE_APP_API_URL,
             loggedInUser() {
                 return cookies.get('user');
             },

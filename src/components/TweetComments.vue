@@ -35,7 +35,7 @@ export default {
         addComment() {
             this.$axios.request({
                 method: 'POST',
-                url: 'https://tweeterest.ml/api/comments',
+                url: this.api + '/comments',
                 data: {
                     loginToken: this.loginToken(),
                     tweetId: this.tweetId,
@@ -53,7 +53,7 @@ export default {
         loadComments() {
             this.$axios.request({
                 method: 'GET',
-                url: 'https://tweeterest.ml/api/comments',
+                url: this.api + '/comments',
                 params: {
                     tweetId: this.tweetId
                 }

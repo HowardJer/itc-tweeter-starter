@@ -38,7 +38,7 @@ export default {
         loadTweets() {
             this.$axios.request({
                 method: 'GET',
-                url: 'https://tweeterest.ml/api/tweets',
+                url: this.api + '/tweets',
             })
             .then((response) => {
                 if (response.status === 200) {

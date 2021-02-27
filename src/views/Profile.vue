@@ -68,7 +68,7 @@ export default {
         loadTweets() {
             this.$axios.request({
                 method: 'GET',
-                url: 'https://tweeterest.ml/api/tweets',
+                url: this.api + '/tweets',
                 params: {
                     userId: this.profileId
                 }
@@ -80,7 +80,7 @@ export default {
         loadUser() {
             this.$axios.request({
                 method: 'GET',
-                url: 'https://tweeterest.ml/api/users',
+                url: this.api + '/users',
                 params: {
                     userId: this.profileId
                 }
@@ -94,7 +94,7 @@ export default {
         saveChanges() {
             this.$axios.request({
                 method: 'PATCH',
-                url: 'https://tweeterest.ml/api/users',
+                url: this.api + '/users',
                 data: {
                     loginToken: this.loginToken(),
                     bio: this.newContent

@@ -59,7 +59,7 @@ export default {
         login() {
             this.$axios.request({
                 method: 'POST',
-                url: 'https://tweeterest.ml/api/login',
+                url: this.api + '/login',
                 data: {
                     email: this.loginForm.email,
                     password: this.loginForm.password
@@ -78,7 +78,7 @@ export default {
         register() {
             this.$axios.request({
                 method: 'POST',
-                url: 'https://tweeterest.ml/api/users',
+                url: this.api + '/users',
                 data: {
                     email: this.registerForm.email,
                     username: this.registerForm.username,

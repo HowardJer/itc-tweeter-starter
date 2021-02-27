@@ -19,7 +19,7 @@ export default {
         postTweet() {
             this.$axios.request({
                 method: 'POST',
-                url: 'https://tweeterest.ml/api/tweets',
+                url: this.api + '/tweets',
                 data: {
                     loginToken: this.loginToken(),
                     content: this.content
